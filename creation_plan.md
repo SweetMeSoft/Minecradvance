@@ -145,12 +145,12 @@ Discreet but accessible support options to ensure project longevity:
   ```bash
   npx -y @angular/cli@latest new ./ --standalone --style=css --routing --ssr=false --skip-tests
   ```
-- [ ] **1.3** Install and configure Tailwind CSS for Angular.
-- [ ] **1.4** Set up the directory structure (`core/`, `shared/`, `features/`, `assets/`).
-- [ ] **1.5** Configure Google Fonts (Inter) in `index.html` and `styles.css`.
-- [ ] **1.6** Define the Tailwind theme extension with the *Modern Craft* color palette.
-- [ ] **1.7** Extract official achievement & biome icons from the Minecraft `.jar` file and place them in `assets/icons/`.
-- [ ] **1.8** Create `assets/data/master-advancements.json` — the static database containing all achievements with:
+- [x] **1.3** Install and configure Tailwind CSS for Angular.
+- [x] **1.4** Set up the directory structure (`core/`, `shared/`, `features/`, `assets/`).
+- [x] **1.5** Configure Google Fonts (Inter) in `index.html` and `styles.css`.
+- [x] **1.6** Define the Tailwind theme extension with the *Modern Craft* color palette.
+- [x] **1.7** Extract official achievement & biome icons from the Minecraft `.jar` file and place them in `assets/icons/`.
+- [x] **1.8** Create `assets/data/master-advancements.json` — the static database containing all achievements with:
   - Advancement ID (namespace key)
   - Display name & description
   - Category (Nether / End / Adventure / Biomes / Husbandry)
@@ -163,24 +163,24 @@ Discreet but accessible support options to ensure project longevity:
 
 > **Goal:** Build the core services that read the user's save file and manage reactive application state.
 
-- [ ] **2.1** Create `core/models/` with TypeScript interfaces:
+- [x] **2.1** Create `core/models/` with TypeScript interfaces:
   - `AdvancementsJSON` — models the raw Minecraft advancements file structure.
   - `MasterAdvancement` — models each entry in `master-advancements.json`.
   - `ProgressSummary` — computed stats (total, completed, percentage per category).
-- [ ] **2.2** Create `core/services/file-parser.service.ts`:
+- [x] **2.2** Create `core/services/file-parser.service.ts`:
   - Accepts a `File` object (from drag & drop).
   - Reads content via `FileReader` API.
   - Validates JSON structure and returns typed `AdvancementsJSON`.
   - Throws user-friendly errors for invalid files.
-- [ ] **2.3** Create `core/services/progress-state.service.ts`:
+- [x] **2.3** Create `core/services/progress-state.service.ts`:
   - Central Signals store (`gameState`, `visitedBiomes`, `missingBiomes`, `userSeed`).
   - Computed signals that diff user data against `master-advancements.json`.
   - Methods: `loadFromFile()`, `loadFromStorage()`, `clearState()`.
-- [ ] **2.4** Create `core/services/local-storage.service.ts`:
+- [x] **2.4** Create `core/services/local-storage.service.ts`:
   - Wrapper for `localStorage` with typed get/set.
   - Auto-persistence of `gameState` and `userSeed`.
   - Handles storage quota errors gracefully.
-- [ ] **2.5** Write unit tests for `FileParserService` and `ProgressStateService` with sample JSON fixtures.
+- [x] **2.5** Write unit tests for `FileParserService` and `ProgressStateService` with sample JSON fixtures.
 
 ---
 

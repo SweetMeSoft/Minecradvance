@@ -1,1 +1,207 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================
+   Minecraft Progress Tracker — Global Styles
+   "Modern Craft" Design System
+   ============================================ */
+
+@import "tailwindcss";
+
+/* ============================================
+   Custom Theme — Modern Craft Palette
+   ============================================ */
+@theme {
+  /* --- Deepslate (Backgrounds) --- */
+  --color-deepslate-950: #0a0e14;
+  --color-deepslate-900: #0f1520;
+  --color-deepslate-800: #151d2c;
+  --color-deepslate-700: #1c2738;
+
+  /* --- Cobblestone (Surfaces / Cards) --- */
+  --color-cobblestone-900: #1a2332;
+  --color-cobblestone-800: #1e293b;
+  --color-cobblestone-700: #263244;
+  --color-cobblestone-600: #334155;
+
+  /* --- Emerald (Accents / XP / Progress) --- */
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  /* --- Redstone (Errors / Alerts / Missing) --- */
+  --color-redstone-50: #fff1f2;
+  --color-redstone-100: #ffe4e6;
+  --color-redstone-200: #fecdd3;
+  --color-redstone-300: #fda4af;
+  --color-redstone-400: #fb7185;
+  --color-redstone-500: #f43f5e;
+  --color-redstone-600: #e11d48;
+
+  /* --- Gold (Achievements / Stars) --- */
+  --color-gold-400: #facc15;
+  --color-gold-500: #eab308;
+  --color-gold-600: #ca8a04;
+
+  /* --- Diamond (Info / Links / Secondary accent) --- */
+  --color-diamond-400: #38bdf8;
+  --color-diamond-500: #0ea5e9;
+  --color-diamond-600: #0284c7;
+
+  /* --- Font Family --- */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* --- Font Sizes --- */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* --- Border Radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --shadow-glow-emerald: 0 0 15px rgba(52, 211, 153, 0.3), 0 0 30px rgba(52, 211, 153, 0.1);
+  --shadow-glow-redstone: 0 0 15px rgba(244, 63, 94, 0.3), 0 0 30px rgba(244, 63, 94, 0.1);
+
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.4s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-progress-fill: progress-fill 1s ease-out;
+}
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(52, 211, 153, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+  }
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+/* ============================================
+   Base / Reset Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-deepslate-950);
+  color: #e2e8f0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ============================================
+   Scrollbar Styling (Webkit)
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deepslate-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cobblestone-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-emerald-600);
+}
+
+/* ============================================
+   Selection Highlight
+   ============================================ */
+::selection {
+  background-color: rgba(52, 211, 153, 0.3);
+  color: #ffffff;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+@utility craft-card {
+  background-color: var(--color-cobblestone-800);
+  border: 1px solid var(--color-cobblestone-600);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+@utility craft-card-hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-emerald-500);
+  transform: translateY(-2px);
+}
+
+@utility craft-glow {
+  box-shadow: var(--shadow-glow-emerald);
+}
+
+@utility text-gradient-emerald {
+  background: linear-gradient(135deg, var(--color-emerald-400), var(--color-diamond-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

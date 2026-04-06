@@ -1,0 +1,100 @@
+{
+  "DataVersion": 3953,
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2024-03-15T10:30:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:story/mine_stone": {
+    "criteria": {
+      "cobblestone": "2024-03-15T10:35:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:story/upgrade_tools": {
+    "criteria": {
+      "stone_pickaxe": "2024-03-15T11:00:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:story/smelt_iron": {
+    "criteria": {
+      "iron": "2024-03-15T11:30:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:story/obtain_armor": {
+    "criteria": {
+      "iron_armor": "2024-03-15T12:00:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:nether/root": {
+    "criteria": {
+      "entered_nether": "2024-03-16T14:00:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:nether/return_to_sender": {
+    "criteria": {
+      "ghast_fireball": "2024-03-16T15:30:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2024-03-15T10:32:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "zombie": "2024-03-15T10:45:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:plains": "2024-03-15T10:30:00+00:00",
+      "minecraft:forest": "2024-03-15T11:00:00+00:00",
+      "minecraft:river": "2024-03-15T12:00:00+00:00",
+      "minecraft:desert": "2024-03-16T09:00:00+00:00",
+      "minecraft:ocean": "2024-03-16T10:00:00+00:00",
+      "minecraft:beach": "2024-03-16T10:05:00+00:00",
+      "minecraft:taiga": "2024-03-17T08:00:00+00:00",
+      "minecraft:swamp": "2024-03-17T09:00:00+00:00",
+      "minecraft:dark_forest": "2024-03-17T10:00:00+00:00",
+      "minecraft:meadow": "2024-03-17T11:00:00+00:00"
+    },
+    "done": false
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "zombie": "2024-03-15T10:45:00+00:00",
+      "skeleton": "2024-03-15T11:15:00+00:00",
+      "creeper": "2024-03-15T12:00:00+00:00",
+      "spider": "2024-03-15T20:30:00+00:00",
+      "enderman": "2024-03-16T16:00:00+00:00"
+    },
+    "done": false
+  },
+  "minecraft:end/root": {
+    "criteria": {
+      "entered_end": "2024-03-18T20:00:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2024-03-15T10:31:00+00:00"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/breed_an_animal": {
+    "criteria": {
+      "cow": "2024-03-15T14:00:00+00:00"
+    },
+    "done": true
+  }
+}
