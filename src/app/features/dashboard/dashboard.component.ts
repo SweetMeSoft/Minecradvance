@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { ProgressCardComponent } from '../../shared/components/progress-card/progress-card.component';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
+import { DropZoneComponent } from '../../shared/components/drop-zone/drop-zone.component';
 import { AdvancementProgress } from '../../core/models/progress.model';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ProgressCardComponent],
+  imports: [CommonModule, ProgressCardComponent, DropZoneComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
@@ -40,6 +41,28 @@ export class DashboardComponent {
   });
 
   protected readonly donutCircumference = this.circumference;
+
+  /** Aggregated categories list with specific texture mapped */
+  protected readonly categories = computed(() => {
+    return this.stateService.progressSummary().categories.map(c => ({
+      ...c,
+      category: {
+        ...c.category,
+        icon: this.getCategoryTexture(c.category.id)
+      }
+    }));
+  });
+
+  private getCategoryTexture(categoryId: string): string {
+    switch (categoryId) {
+      case 'story': return 'assets/textures/block/grass_block_side.png';
+      case 'adventure': return 'assets/textures/item/iron_sword.png';
+      case 'nether': return 'assets/textures/block/red_nether_bricks.png';
+      case 'end': return 'assets/textures/block/end_stone.png';
+      case 'husbandry': return 'assets/textures/item/wheat.png';
+      default: return 'assets/textures/item/book.png';
+    }
+  }
 
   /** Top 5 recent completions */
   protected readonly recentCompletions = computed(() => {
@@ -80,6 +103,15 @@ export class DashboardComponent {
       }).format(date);
     } catch {
       return isoDate;
+    }
+  }
+
+  /** Handle the file dropped or selected via the DropZone component */
+  async onFileSelected(file: File): Promise<void> {
+    try {
+      await this.stateService.loadFromFile(file);
+    } catch (error) {
+      console.error('File parsing failed:', error);
     }
   }
 }

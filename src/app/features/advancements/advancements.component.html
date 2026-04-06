@@ -62,19 +62,20 @@
         <div class="adv-header" (click)="toggleExpand(adv.advancement.id)" role="button" tabindex="0" (keydown.enter)="toggleExpand(adv.advancement.id)">
           
           <div class="adv-icon-wrapper" [class.icon-completed]="adv.completed">
+            <img 
+              class="adv-texture" 
+              [src]="'assets/textures/item/' + adv.advancement.icon" 
+              (error)="$event.target.src = 'assets/textures/block/' + adv.advancement.icon"
+              alt="{{ adv.advancement.name }}" 
+            />
             @if (adv.completed) {
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <path d="M20 6L9 17l-5-5"/>
-              </svg>
-            } @else {
-              <!-- Fallback to a placeholder based on progress -->
-              @if (adv.percentage > 0) {
-                <span class="partial-pct">{{ adv.percentage }}%</span>
-              } @else {
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <div class="completed-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M20 6L9 17l-5-5"/>
                 </svg>
-              }
+              </div>
+            } @else if (adv.percentage > 0) {
+              <span class="partial-pct-overlay">{{ adv.percentage }}%</span>
             }
           </div>
 

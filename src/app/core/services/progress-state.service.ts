@@ -10,7 +10,7 @@ import {
 } from '../models/progress.model';
 import { LocalStorageService, StorageKey } from './local-storage.service';
 import { FileParserService } from './file-parser.service';
-import masterData from '../../../assets/data/master-advancements.json';
+import masterData from '../../../../public/assets/data/master-advancements.json';
 
 /**
  * Central state service for the application.

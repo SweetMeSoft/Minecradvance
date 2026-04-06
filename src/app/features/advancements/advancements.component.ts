@@ -33,7 +33,7 @@ export class AdvancementsComponent {
     return this.stateService.progressSummary().categories.map(c => ({
       id: c.category.id,
       label: c.category.name,
-      icon: `assets/icons/${c.category.icon}`,
+      icon: this.getCategoryTexture(c.category.id),
       variant: this.getCategoryVariant(c.category.id),
       count: c.total > 0 ? Math.round((c.completed / c.total) * 100) : 0 // Show percentage as badge
     }));
@@ -120,6 +120,17 @@ export class AdvancementsComponent {
       case 'end': return 'diamond';
       case 'husbandry': return 'gold';
       default: return 'emerald';
+    }
+  }
+
+  getCategoryTexture(categoryId: string): string {
+    switch (categoryId) {
+      case 'story': return 'assets/textures/block/grass_block_side.png';
+      case 'adventure': return 'assets/textures/item/iron_sword.png';
+      case 'nether': return 'assets/textures/block/red_nether_bricks.png';
+      case 'end': return 'assets/textures/block/end_stone.png';
+      case 'husbandry': return 'assets/textures/item/wheat.png';
+      default: return 'assets/textures/item/book.png';
     }
   }
 

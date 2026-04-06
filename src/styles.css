@@ -3,12 +3,10 @@
    "Modern Craft" Design System
    ============================================ */
 
-@import "tailwindcss";
-
 /* ============================================
    Custom Theme — Modern Craft Palette
    ============================================ */
-@theme {
+:root {
   /* --- Deepslate (Backgrounds) --- */
   --color-deepslate-950: #0a0e14;
   --color-deepslate-900: #0f1520;
@@ -180,7 +178,7 @@ body {
 /* ============================================
    Utility Classes
    ============================================ */
-@utility craft-card {
+.craft-card {
   background-color: var(--color-cobblestone-800);
   border: 1px solid var(--color-cobblestone-600);
   border-radius: var(--radius-lg);
@@ -189,17 +187,17 @@ body {
   transition: all 0.3s ease;
 }
 
-@utility craft-card-hover {
+.craft-card-hover {
   box-shadow: var(--shadow-card-hover);
   border-color: var(--color-emerald-500);
   transform: translateY(-2px);
 }
 
-@utility craft-glow {
+.craft-glow {
   box-shadow: var(--shadow-glow-emerald);
 }
 
-@utility text-gradient-emerald {
+.text-gradient-emerald {
   background: linear-gradient(135deg, var(--color-emerald-400), var(--color-diamond-400));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

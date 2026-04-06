@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { ProgressCardComponent } from '../../shared/components/progress-card/progress-card.component';
 import { MasterBiome, MasterDatabase } from '../../core/models/progress.model';
-import masterDataJson from '../../../assets/data/master-advancements.json';
+import masterDataJson from '../../../../public/assets/data/master-advancements.json';
 
 const masterDb = masterDataJson as MasterDatabase;
 

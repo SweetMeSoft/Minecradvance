@@ -10,7 +10,7 @@ import {
   AdvancementProgress,
 } from '../../models/progress.model';
 import sampleData from './fixtures/sample-advancements.json';
-import masterDataJson from '../../../../assets/data/master-advancements.json';
+import masterDataJson from '../../../../../public/assets/data/master-advancements.json';
 
 /**
  * Tests for the core business logic of ProgressStateService.
