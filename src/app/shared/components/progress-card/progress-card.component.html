@@ -1,0 +1,56 @@
+<article
+  class="progress-card"
+  [class.complete]="isFullyComplete()"
+  [class]="'variant-' + variant()"
+>
+  <!-- Completion shimmer overlay -->
+  @if (isFullyComplete()) {
+    <div class="completion-overlay"></div>
+  }
+
+  <!-- Card Header -->
+  <div class="card-header">
+    <!-- Icon -->
+    <div class="card-icon" [class]="'icon-' + variant()">
+      @if (icon()) {
+        <img [src]="icon()" [alt]="title() + ' icon'" loading="lazy" />
+      } @else {
+        <!-- Fallback icon: trophy/star -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L14.09 8.26L21 9.27L16 13.97L17.18 20.92L12 17.77L6.82 20.92L8 13.97L3 9.27L9.91 8.26L12 2Z"
+                fill="currentColor" opacity="0.9"/>
+        </svg>
+      }
+    </div>
+
+    <!-- Title & Subtitle -->
+    <div class="card-text">
+      <h3 class="card-title">{{ title() }}</h3>
+      @if (subtitle()) {
+        <p class="card-subtitle">{{ subtitle() }}</p>
+      }
+    </div>
+
+    <!-- Completion badge -->
+    @if (isFullyComplete()) {
+      <div class="completion-badge">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+    }
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="card-progress">
+    <app-progress-bar
+      [value]="computedPercentage()"
+      [completed]="completed()"
+      [total]="total()"
+      [variant]="variant()"
+      [size]="'sm'"
+      [showPercentage]="true"
+    />
+  </div>
+</article>

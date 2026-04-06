@@ -190,16 +190,16 @@ Discreet but accessible support options to ensure project longevity:
 
 #### 3A — Shared Components
 
-- [ ] **3.1** `shared/components/drop-zone/` — Drag & drop file upload zone with:
+- [x] **3.1** `shared/components/drop-zone/` — Drag & drop file upload zone with:
   - Dashed border, emerald glow on drag-over.
   - File type validation (`.json` only).
   - Emits parsed `File` to parent.
-- [ ] **3.2** `shared/components/progress-bar/` — Animated horizontal progress bar with percentage label.
-- [ ] **3.3** `shared/components/progress-card/` — Card component displaying:
+- [x] **3.2** `shared/components/progress-bar/` — Animated horizontal progress bar with percentage label.
+- [x] **3.3** `shared/components/progress-card/` — Card component displaying:
   - Icon, title, description.
   - Completion status (checkmark or missing indicator).
   - Hover glow effect.
-- [ ] **3.4** `shared/components/category-tabs/` — Tab bar for switching between advancement categories.
+- [x] **3.4** `shared/components/category-tabs/` — Tab bar for switching between advancement categories.
 
 #### 3B — Feature Pages
 

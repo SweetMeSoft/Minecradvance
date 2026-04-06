@@ -1,0 +1,86 @@
+<div
+  class="drop-zone"
+  [class.drag-over]="isDragOver()"
+  [class.accepted]="isAccepted()"
+  [class.has-error]="errorMessage()"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+  (click)="openFileBrowser()"
+  role="button"
+  tabindex="0"
+  aria-label="Drop your Minecraft advancements JSON file here or click to browse"
+  (keydown.enter)="openFileBrowser()"
+  (keydown.space)="openFileBrowser()"
+>
+  <!-- Hidden file input -->
+  <input
+    #fileInput
+    type="file"
+    accept=".json"
+    class="hidden-input"
+    (change)="onFileInputChange($event)"
+    aria-hidden="true"
+  />
+
+  <!-- Animated background particles -->
+  <div class="particles">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    <div class="particle particle-6"></div>
+  </div>
+
+  <!-- Icon area -->
+  <div class="icon-container">
+    @if (isAccepted()) {
+      <!-- Checkmark icon -->
+      <svg class="icon icon-success" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" />
+        <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    } @else if (errorMessage()) {
+      <!-- Error icon -->
+      <svg class="icon icon-error" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" />
+        <path d="M24 24L40 40M40 24L24 40" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    } @else {
+      <!-- Upload icon -->
+      <svg class="icon icon-upload" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 42V18M32 18L22 28M32 18L42 28" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 38V46C12 48.2091 13.7909 50 16 50H48C50.2091 50 52 48.2091 52 46V38" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    }
+  </div>
+
+  <!-- Text content -->
+  <div class="text-content">
+    @if (isAccepted() && acceptedFileName()) {
+      <p class="title success-title">File loaded!</p>
+      <p class="subtitle">{{ acceptedFileName() }}</p>
+    } @else if (errorMessage()) {
+      <p class="title error-title">Invalid file</p>
+      <p class="subtitle error-subtitle">{{ errorMessage() }}</p>
+    } @else {
+      <p class="title">
+        @if (isDragOver()) {
+          Release to upload
+        } @else {
+          Drop your save file here
+        }
+      </p>
+      <p class="subtitle">
+        Drag your <code>advancements.json</code> file or <span class="browse-link">click to browse</span>
+      </p>
+      <p class="hint">
+        Found in <code>.minecraft/saves/&lt;world&gt;/advancements/</code>
+      </p>
+    }
+  </div>
+
+  <!-- Border glow ring -->
+  <div class="border-glow"></div>
+</div>

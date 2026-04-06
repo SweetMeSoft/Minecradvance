@@ -1,0 +1,47 @@
+<div class="progress-wrapper" [class]="'size-' + size()">
+  <!-- Top row: label + stats -->
+  @if (label() || showPercentage() || fractionText()) {
+    <div class="progress-header">
+      @if (label()) {
+        <span class="progress-label">{{ label() }}</span>
+      }
+      <div class="progress-stats">
+        @if (fractionText()) {
+          <span class="progress-fraction">{{ fractionText() }}</span>
+        }
+        @if (showPercentage()) {
+          <span class="progress-percent" [class]="'text-' + variant()">
+            {{ clampedValue() }}%
+          </span>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Track -->
+  <div class="progress-track" role="progressbar"
+       [attr.aria-valuenow]="clampedValue()"
+       aria-valuemin="0"
+       aria-valuemax="100"
+       [attr.aria-label]="label() || 'Progress'">
+    <!-- Fill -->
+    <div
+      class="progress-fill"
+      [class]="'fill-' + variant()"
+      [class.animated]="animated()"
+      [style.width.%]="clampedValue()"
+    >
+      <!-- Shimmer overlay -->
+      <div class="progress-shimmer"></div>
+    </div>
+
+    <!-- Glow effect at the fill edge -->
+    @if (clampedValue() > 0 && clampedValue() < 100) {
+      <div
+        class="progress-glow"
+        [class]="'glow-' + variant()"
+        [style.left.%]="clampedValue()"
+      ></div>
+    }
+  </div>
+</div>

@@ -1,0 +1,317 @@
+/* ============================================
+   DropZone Component — "Modern Craft" Style
+   ============================================ */
+
+.drop-zone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 560px;
+  min-height: 280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  border: 2px dashed var(--color-cobblestone-600);
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(15, 21, 32, 0.8) 100%
+  );
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.drop-zone:hover {
+  border-color: var(--color-emerald-500);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.6) 0%,
+    rgba(15, 21, 32, 0.9) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(52, 211, 153, 0.1);
+}
+
+.drop-zone:focus-visible {
+  border-color: var(--color-diamond-400);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+}
+
+/* ─── Drag Over State ──────────────────────────────────────────── */
+
+.drop-zone.drag-over {
+  border-color: var(--color-emerald-400);
+  border-style: solid;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.08) 0%,
+    rgba(15, 21, 32, 0.95) 100%
+  );
+  transform: scale(1.02);
+  box-shadow:
+    0 0 40px rgba(52, 211, 153, 0.15),
+    0 0 80px rgba(52, 211, 153, 0.05),
+    inset 0 0 60px rgba(52, 211, 153, 0.03);
+}
+
+.drop-zone.drag-over .icon-upload {
+  transform: translateY(-8px) scale(1.15);
+  color: var(--color-emerald-400);
+}
+
+/* ─── Accepted State ───────────────────────────────────────────── */
+
+.drop-zone.accepted {
+  border-color: var(--color-emerald-500);
+  border-style: solid;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.12) 0%,
+    rgba(15, 21, 32, 0.95) 100%
+  );
+  box-shadow:
+    0 0 30px rgba(52, 211, 153, 0.2),
+    0 0 60px rgba(52, 211, 153, 0.08);
+}
+
+/* ─── Error State ──────────────────────────────────────────────── */
+
+.drop-zone.has-error {
+  border-color: var(--color-redstone-500);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+/* ─── Hidden Input ─────────────────────────────────────────────── */
+
+.hidden-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── Particles ────────────────────────────────────────────────── */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-emerald-400);
+  opacity: 0;
+}
+
+.drop-zone:hover .particle,
+.drop-zone.drag-over .particle {
+  animation: float-up 3s ease-in-out infinite;
+}
+
+.particle-1 { left: 15%; animation-delay: 0s; }
+.particle-2 { left: 30%; animation-delay: 0.5s; }
+.particle-3 { left: 50%; animation-delay: 1s; }
+.particle-4 { left: 65%; animation-delay: 1.5s; }
+.particle-5 { left: 80%; animation-delay: 2s; }
+.particle-6 { left: 45%; animation-delay: 0.8s; width: 3px; height: 3px; }
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0);
+    bottom: 0;
+  }
+  20% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.3);
+    bottom: 100%;
+  }
+}
+
+/* ─── Icon ─────────────────────────────────────────────────────── */
+
+.icon-container {
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-upload {
+  color: var(--color-cobblestone-600);
+}
+
+.drop-zone:hover .icon-upload {
+  color: var(--color-emerald-400);
+  transform: translateY(-4px);
+  filter: drop-shadow(0 4px 12px rgba(52, 211, 153, 0.3));
+}
+
+.icon-success {
+  color: var(--color-emerald-400);
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 12px rgba(52, 211, 153, 0.4));
+}
+
+.icon-error {
+  color: var(--color-redstone-400);
+  animation: pop-in 0.3s ease-out;
+  filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.4));
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── Text ─────────────────────────────────────────────────────── */
+
+.text-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.drop-zone:hover .title,
+.drop-zone.drag-over .title {
+  color: #ffffff;
+}
+
+.success-title {
+  color: var(--color-emerald-400) !important;
+}
+
+.error-title {
+  color: var(--color-redstone-400) !important;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.error-subtitle {
+  color: var(--color-redstone-300);
+  max-width: 360px;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8em;
+  background: rgba(51, 65, 85, 0.5);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: var(--color-diamond-400);
+}
+
+.browse-link {
+  color: var(--color-emerald-400);
+  text-decoration: underline;
+  text-decoration-color: rgba(52, 211, 153, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.drop-zone:hover .browse-link {
+  text-decoration-color: var(--color-emerald-400);
+}
+
+/* ─── Border Glow Ring ─────────────────────────────────────────── */
+
+.border-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--color-emerald-400) 10%,
+    transparent 20%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+.drop-zone:hover .border-glow {
+  opacity: 0.5;
+  animation: rotate-glow 4s linear infinite;
+}
+
+.drop-zone.drag-over .border-glow {
+  opacity: 0.8;
+  animation: rotate-glow 2s linear infinite;
+}
+
+@keyframes rotate-glow {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ───────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .drop-zone {
+    min-height: 220px;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}

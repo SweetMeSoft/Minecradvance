@@ -1,0 +1,41 @@
+<div class="tabs-container" role="tablist" aria-label="Advancement categories">
+  <div class="tabs-scroll-area">
+    @for (tab of tabs(); track tab.id) {
+      <button
+        type="button"
+        role="tab"
+        [attr.aria-selected]="activeTabId() === tab.id"
+        [attr.aria-controls]="'tabpanel-' + tab.id"
+        [id]="'tab-' + tab.id"
+        class="tab-item"
+        [class.active]="activeTabId() === tab.id"
+        [class]="'variant-' + (tab.variant || 'emerald')"
+        (click)="onTabClick(tab.id)"
+        (keydown.enter)="onTabClick(tab.id)"
+        (keydown.space)="onTabClick(tab.id)"
+      >
+        <!-- Active indicator line -->
+        @if (activeTabId() === tab.id) {
+          <div class="active-indicator">
+            <div class="indicator-glow"></div>
+          </div>
+        }
+
+        <!-- Icon -->
+        @if (tab.icon) {
+          <div class="tab-icon">
+            <img [src]="tab.icon" [alt]="tab.label + ' icon'" loading="lazy" />
+          </div>
+        }
+
+        <!-- Label -->
+        <span class="tab-label">{{ tab.label }}</span>
+
+        <!-- Badge (e.g. completion fraction) -->
+        @if (tab.count !== undefined) {
+          <span class="tab-badge">{{ tab.count }}</span>
+        }
+      </button>
+    }
+  </div>
+</div>
