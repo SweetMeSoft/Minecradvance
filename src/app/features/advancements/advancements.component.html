@@ -1,0 +1,159 @@
+<div class="advancements-layout animate-fade-in">
+  
+  <!-- Categories Navbar -->
+  <header class="advancements-header">
+    <app-category-tabs 
+      [tabs]="categoryTabs()" 
+      [activeTabId]="activeCategoryId()" 
+      (tabChange)="onCategoryChange($event)">
+    </app-category-tabs>
+  </header>
+
+  <!-- Title & Controls for current category -->
+  <section class="category-controls glass-panel">
+    <div class="category-info">
+      <h2 class="category-title">
+        {{ getCategoryLabel() }} Advancements
+      </h2>
+      <div class="progress-bar-wrapper">
+        <app-progress-bar 
+          [value]="activeCategoryStats().percentage" 
+          [completed]="activeCategoryStats().completed"
+          [total]="activeCategoryStats().total"
+          [variant]="getCategoryVariant(activeCategoryId())"
+          size="sm">
+        </app-progress-bar>
+      </div>
+    </div>
+
+    <div class="controls-actions">
+      <!-- Search -->
+      <div class="search-container">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          [ngModel]="searchQuery()"
+          (ngModelChange)="searchQuery.set($event)"
+        />
+      </div>
+
+      <!-- Filter Dropdown / Buttons -->
+      <div class="filter-group">
+        <button [class.active]="filterType() === 'all'" (click)="setFilter('all')">All</button>
+        <button [class.active]="filterType() === 'in-progress'" (click)="setFilter('in-progress')">In Progress</button>
+        <button [class.active]="filterType() === 'completed'" (click)="setFilter('completed')">Completed</button>
+        <button [class.active]="filterType() === 'missing'" (click)="setFilter('missing')">Missing</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advancements Grid -->
+  <section class="advancements-grid">
+    @for (adv of displayedAdvancements(); track adv.advancement.id) {
+      <div 
+        class="adv-card glass-panel" 
+        [class.completed]="adv.completed"
+        [class.expanded]="expandedAdvancementId() === adv.advancement.id"
+      >
+        <!-- Card Header (Clickable for expand/collapse) -->
+        <div class="adv-header" (click)="toggleExpand(adv.advancement.id)" role="button" tabindex="0" (keydown.enter)="toggleExpand(adv.advancement.id)">
+          
+          <div class="adv-icon-wrapper" [class.icon-completed]="adv.completed">
+            @if (adv.completed) {
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            } @else {
+              <!-- Fallback to a placeholder based on progress -->
+              @if (adv.percentage > 0) {
+                <span class="partial-pct">{{ adv.percentage }}%</span>
+              } @else {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              }
+            }
+          </div>
+
+          <div class="adv-info">
+            <h3 class="adv-name">{{ adv.advancement.name }}</h3>
+            <p class="adv-desc">{{ adv.advancement.description }}</p>
+          </div>
+          
+          <!-- Expand Chevron -->
+          <div class="expand-chevron">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Expanded Criteria Section -->
+        @if (expandedAdvancementId() === adv.advancement.id) {
+          <div class="adv-criteria-container">
+            <hr class="criteria-divider" />
+            
+            <div class="criteria-progress-summary">
+              <app-progress-bar 
+                [value]="adv.percentage"
+                [completed]="adv.completedCriteria.length"
+                [total]="adv.advancement.criteria.length"
+                [variant]="getCategoryVariant(adv.advancement.category)"
+                size="sm">
+              </app-progress-bar>
+            </div>
+
+            <div class="criteria-lists">
+              @if (adv.completedCriteria.length > 0) {
+                <div class="criteria-box criteria-completed">
+                  <h4 class="criteria-heading text-emerald">Completed ({{ adv.completedCriteria.length }})</h4>
+                  <ul class="criteria-list">
+                    @for (crit of adv.completedCriteria; track crit) {
+                      <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>{{ formatCriteriaName(crit) }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              @if (adv.missingCriteria.length > 0) {
+                <div class="criteria-box criteria-missing">
+                  <h4 class="criteria-heading text-redstone">Missing ({{ adv.missingCriteria.length }})</h4>
+                  <ul class="criteria-list">
+                    @for (crit of adv.missingCriteria; track crit) {
+                      <li>
+                        <div class="missing-dot"></div>
+                        <span>{{ formatCriteriaName(crit) }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+
+            @if (adv.completedAt) {
+              <div class="adv-timestamp">
+                Unlocked on: {{ adv.completedAt | date:'medium' }}
+              </div>
+            }
+
+          </div>
+        }
+      </div>
+    } @empty {
+      <div class="empty-state glass-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p>No advancements found matching your criteria.</p>
+        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">Clear Filters</button>
+      </div>
+    }
+  </section>
+</div>

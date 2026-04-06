@@ -1,0 +1,111 @@
+<div class="seed-layout animate-fade-in">
+
+  <!-- Header -->
+  <header class="seed-header text-center">
+    <div class="header-icon mx-auto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+    </div>
+    <h1 class="page-title">World Seed Explorer</h1>
+    <p class="page-subtitle">Input your world generation seed to instantly locate structures and missing biomes via Chunkbase.</p>
+  </header>
+
+  <!-- Main Card -->
+  <main class="seed-content">
+    <div class="glass-panel main-panel">
+      
+      <div class="input-section">
+        <label for="seed-input" class="input-label">Minecraft World Seed</label>
+        
+        <div class="input-wrapper" [class.has-error]="validationError()">
+          <div class="input-prefix text-emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          
+          <input 
+            id="seed-input"
+            type="text" 
+            class="seed-input" 
+            placeholder="e.g. 542630838 or 'my awesome world'"
+            [ngModel]="inputSeed()"
+            (ngModelChange)="onInputChange($event)"
+            (keydown.enter)="saveSeed()"
+          />
+          
+          @if (inputSeed()) {
+            <button class="clear-input-btn" (click)="clearSeed()" aria-label="Clear seed">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          }
+        </div>
+
+        @if (validationError()) {
+          <p class="error-msg animate-pop-in">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            {{ validationError() }}
+          </p>
+        }
+
+        <div class="action-row">
+          <button 
+            class="btn btn-primary" 
+            [disabled]="!hasUnsavedChanges()"
+            (click)="saveSeed()">
+            Save Local Seed
+          </button>
+          
+          @if (showSuccess()) {
+            <span class="success-msg animate-pop-in text-emerald">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Saved to disk
+            </span>
+          }
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Chunkbase Integration Section -->
+      <div class="integration-section">
+        <div class="integration-content">
+          <div class="integration-info">
+            <img src="assets/images/chunkbase-logo.png" alt="" class="integration-logo" onerror="this.style.display='none'" />
+            <h3 class="integration-title">Chunkbase Map Integration</h3>
+            <p class="integration-desc">
+              Having trouble finding that elusive Mushroom Island or Snowy Slopes biome? 
+              Chunkbase generates an interactive map of your world.
+            </p>
+          </div>
+          
+          <a 
+            [href]="chunkbaseUrl()" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-external link-diamond"
+            [class.disabled]="!currentSeed()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Open in Chunkbase Map
+          </a>
+        </div>
+
+        @if (!currentSeed()) {
+          <div class="integration-overlay">
+            <p>Save a seed first to enable integration</p>
+          </div>
+        }
+      </div>
+
+    </div>
+  </main>
+
+</div>

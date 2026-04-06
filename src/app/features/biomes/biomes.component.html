@@ -1,0 +1,121 @@
+<div class="biomes-layout animate-fade-in">
+  
+  <!-- Header / Hero Area -->
+  <header class="biomes-header">
+    <div class="header-content">
+      <h1 class="page-title">Adventuring Time</h1>
+      <p class="page-subtitle">Discover every biome in the Overworld to complete the ultimate exploration challenge.</p>
+      
+      <!-- Progress Bar (Overall Biomes) -->
+      <div class="header-progress">
+        <div class="progress-stats">
+          <span class="stat-text">Progress</span>
+          <span class="stat-numbers text-emerald">{{ stats().percentage }}% ({{ stats().visited }}/{{ stats().total }})</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill fill-emerald" [style.width.%]="stats().percentage"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Controls (Search & Filters) -->
+  <section class="controls-bar glass-panel">
+    
+    <!-- Search Input -->
+    <div class="search-container">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Search biomes (e.g. 'Jungle')" 
+        [ngModel]="searchQuery()"
+        (ngModelChange)="searchQuery.set($event)"
+      />
+      @if (searchQuery()) {
+        <button class="clear-search" (click)="searchQuery.set('')" aria-label="Clear search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      }
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button 
+        class="filter-tab" 
+        [class.active]="filterType() === 'all'" 
+        (click)="setFilter('all')">
+        All
+      </button>
+      <button 
+        class="filter-tab" 
+        [class.active]="filterType() === 'visited'" 
+        (click)="setFilter('visited')">
+        Visited <span class="tab-badge badge-emerald">{{ stats().visited }}</span>
+      </button>
+      <button 
+        class="filter-tab" 
+        [class.active]="filterType() === 'missing'" 
+        (click)="setFilter('missing')">
+        Missing <span class="tab-badge badge-redstone">{{ stats().total - stats().visited }}</span>
+      </button>
+    </div>
+    
+  </section>
+
+  <!-- Grid Area -->
+  <section class="biomes-grid">
+    @for (biome of displayedBiomes(); track biome.id) {
+      <div 
+        class="biome-card glass-panel" 
+        [class.visited]="biome.isVisited"
+        [class.missing]="!biome.isVisited"
+      >
+        <!-- Background decorative pattern based on status -->
+        <div class="biome-card-bg"></div>
+
+        <div class="biome-card-content">
+          <!-- Status Icon -->
+          <div class="status-indicator">
+            @if (biome.isVisited) {
+              <div class="status-icon icon-visited">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+            } @else {
+              <div class="status-icon icon-missing">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+              </div>
+            }
+          </div>
+
+          <div class="biome-text">
+            <h3 class="biome-title" title="{{ biome.id }}">{{ biome.name }}</h3>
+            <p class="biome-subtitle">Dimension: {{ biome.dimension | titlecase }}</p>
+          </div>
+        </div>
+
+        <!-- Overworld Dimension Tag -->
+        <div class="dimension-tag">
+          <span class="tag-dot"></span> Overworld
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state glass-panel">
+        <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p>No biomes match your search.</p>
+        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">Clear Filters</button>
+      </div>
+    }
+  </section>
+
+</div>

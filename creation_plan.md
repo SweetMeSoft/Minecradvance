@@ -203,20 +203,20 @@ Discreet but accessible support options to ensure project longevity:
 
 #### 3B — Feature Pages
 
-- [ ] **3.5** `features/dashboard/` — **Dashboard Page:**
+- [x] **3.5** `features/dashboard/` — **Dashboard Page:**
   - Overall progress ring/donut chart.
   - Per-category progress bars.
   - Quick stats (total advancements, completed, missing).
   - Recent completions list.
-- [ ] **3.6** `features/biomes/` — **Biomes Page:**
+- [x] **3.6** `features/biomes/` — **Biomes Page:**
   - Grid of `ProgressCard` for each biome.
   - Visual distinction between visited ✅ and missing ❌.
   - Filter/search input.
-- [ ] **3.7** `features/advancements/` — **Advancements Page:**
+- [x] **3.7** `features/advancements/` — **Advancements Page:**
   - Tabbed view by category (Nether, End, Adventure, Husbandry).
   - Achievement tree or grid layout.
   - Expandable cards showing criteria progress for multi-step advancements.
-- [ ] **3.8** `features/seed-manager/` — **Seed Manager Page:**
+- [x] **3.8** `features/seed-manager/` — **Seed Manager Page:**
   - Text input for the world seed.
   - Validation (numeric or alphanumeric check).
   - *"Open in Chunkbase"* button that constructs and opens the external URL.
@@ -224,10 +224,10 @@ Discreet but accessible support options to ensure project longevity:
 
 #### 3C — Layout & Navigation
 
-- [ ] **3.9** Create `app.component.ts` shell layout:
+- [x] **3.9** Create `app.component.ts` shell layout:
   - Sidebar or top-nav with links to Dashboard, Biomes, Advancements, Seed Manager.
   - Footer with donation link and GitHub repo link.
-- [ ] **3.10** Configure `app.routes.ts` with lazy-loaded routes for each feature module.
+- [x] **3.10** Configure `app.routes.ts` with lazy-loaded routes for each feature module.
 
 ---
 
