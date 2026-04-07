@@ -86,15 +86,21 @@
     <h2 class="section-title">Category Breakdown</h2>
     <div class="categories-grid">
       @for (catProgress of categories(); track catProgress.category.id) {
-        <app-progress-card
-          [title]="catProgress.category.name"
-          [subtitle]="catProgress.category.description"
-          [icon]="catProgress.category.icon"
-          [completed]="catProgress.completed"
-          [total]="catProgress.total"
-          [variant]="getCategoryVariant(catProgress.category.id)"
-          [isComplete]="catProgress.completed === catProgress.total && catProgress.total > 0"
-        />
+        <a 
+          [routerLink]="['/advancements']" 
+          [queryParams]="{category: catProgress.category.id}" 
+          class="clickable-card-wrapper"
+        >
+          <app-progress-card
+            [title]="catProgress.category.name"
+            [subtitle]="catProgress.category.description"
+            [icon]="catProgress.category.icon"
+            [completed]="catProgress.completed"
+            [total]="catProgress.total"
+            [variant]="getCategoryVariant(catProgress.category.id)"
+            [isComplete]="catProgress.completed === catProgress.total && catProgress.total > 0"
+          />
+        </a>
       }
     </div>
   </section>

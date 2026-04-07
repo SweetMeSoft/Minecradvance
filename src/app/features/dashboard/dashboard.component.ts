@@ -5,11 +5,12 @@ import { ProgressCardComponent } from '../../shared/components/progress-card/pro
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
 import { DropZoneComponent } from '../../shared/components/drop-zone/drop-zone.component';
 import { AdvancementProgress } from '../../core/models/progress.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ProgressCardComponent, DropZoneComponent],
+  imports: [CommonModule, RouterModule, ProgressCardComponent, DropZoneComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

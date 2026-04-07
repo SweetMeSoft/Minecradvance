@@ -18,5 +18,9 @@ export const routes: Routes = [
     path: 'seed-manager', 
     loadComponent: () => import('./features/seed-manager/seed-manager.component').then(m => m.SeedManagerComponent) 
   },
+  { 
+    path: 'checklist/:id', 
+    loadComponent: () => import('./features/checklist/checklist.component').then(m => m.ChecklistComponent) 
+  },
   { path: '**', redirectTo: 'dashboard' }
 ];

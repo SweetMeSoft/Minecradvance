@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { CategoryTabsComponent, TabItem } from '../../shared/components/category-tabs/category-tabs.component';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
@@ -15,9 +16,18 @@ import { AdvancementProgress } from '../../core/models/progress.model';
 })
 export class AdvancementsComponent {
   private readonly stateService = inject(ProgressStateService);
+  private readonly route = inject(ActivatedRoute);
 
   /** Active category ID, defaults to 'story' */
   protected readonly activeCategoryId = signal<string>('story');
+
+  constructor() {
+    this.route.queryParams.subscribe(params => {
+      if (params['category']) {
+        this.activeCategoryId.set(params['category']);
+      }
+    });
+  }
 
   /** Search query within advancements */
   protected readonly searchQuery = signal('');
