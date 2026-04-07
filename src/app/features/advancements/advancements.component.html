@@ -64,8 +64,7 @@
           <div class="adv-icon-wrapper" [class.icon-completed]="adv.completed">
             <img 
               class="adv-texture" 
-              [src]="'assets/textures/item/' + adv.advancement.icon" 
-              (error)="$event.target.src = 'assets/textures/block/' + adv.advancement.icon"
+              [src]="'assets/icons/' + adv.advancement.icon" 
               alt="{{ adv.advancement.name }}" 
             />
             @if (adv.completed) {

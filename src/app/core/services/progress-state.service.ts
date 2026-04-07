@@ -33,6 +33,11 @@ export class ProgressStateService {
   /** The static master database loaded from assets */
   readonly masterDb: MasterDatabase = masterData as MasterDatabase;
 
+  constructor() {
+    // Auto-restore saved advancement data on app startup
+    this.loadFromStorage();
+  }
+
   // ─── Primary State (Signals) ───────────────────────────────────────
   /** Raw parsed advancement data from the user's save file */
   readonly gameState = signal<ParsedAdvancements | null>(null);

@@ -114,7 +114,7 @@
         @for (recent of recentCompletions(); track recent.advancement.id) {
           <div class="timeline-item glass-panel">
             <div class="timeline-icon">
-               <img [src]="'assets/icons/' + getCategoryVariant(recent.advancement.category) + '.svg'" alt="*" class="fallback-icon" />
+               <img [src]="'assets/icons/' + recent.advancement.icon" alt="*" class="fallback-icon" />
             </div>
             <div class="timeline-content">
               <h4 class="timeline-title">{{ recent.advancement.name }}</h4>
