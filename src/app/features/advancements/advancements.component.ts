@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { CategoryTabsComponent, TabItem } from '../../shared/components/category-tabs/category-tabs.component';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
@@ -10,7 +11,7 @@ import { AdvancementProgress } from '../../core/models/progress.model';
 @Component({
   selector: 'app-advancements',
   standalone: true,
-  imports: [CommonModule, FormsModule, CategoryTabsComponent, ProgressBarComponent],
+  imports: [CommonModule, FormsModule, TranslocoModule, CategoryTabsComponent, ProgressBarComponent],
   templateUrl: './advancements.component.html',
   styleUrl: './advancements.component.css',
 })

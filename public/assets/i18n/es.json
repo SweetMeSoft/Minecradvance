@@ -1,0 +1,124 @@
+{
+  "app": {
+    "nav": {
+      "dashboard": "Panel Principal",
+      "advancements": "Logros",
+      "checklists": "Listas de Control",
+      "adventuringTime": "Tiempo de Aventura",
+      "monstersHunted": "Monstruos Cazados",
+      "twoByTwo": "De Dos en Dos",
+      "balancedDiet": "Dieta Equilibrada",
+      "completeCatalogue": "Catálogo Completo",
+      "hotTouristDestinations": "Destinos Turísticos",
+      "wholePack": "La Manada Completa",
+      "tools": "Herramientas",
+      "seedManager": "Gestión de Semillas"
+    },
+    "lang": {
+      "switchTo": "Cambiar a inglés",
+      "en": "EN",
+      "es": "ES"
+    }
+  },
+  "dashboard": {
+    "title": "Viaje Global",
+    "subtitle": "Tu progreso total de logros en todo el mundo.",
+    "complete": "Completado",
+    "stats": {
+      "unlocked": "Desbloqueados",
+      "remaining": "Restantes",
+      "total": "Total",
+      "biomes": "Biomas"
+    },
+    "categories": {
+      "title": "Resumen por Categoría",
+      "clickHint": "Haz clic en una categoría para ver sus logros"
+    },
+    "recent": {
+      "title": "Logros Recientes",
+      "empty": "Aún no hay logros desbloqueados. ¡Carga tu archivo de mundo para ver tu progreso!"
+    }
+  },
+  "advancements": {
+    "filters": {
+      "all": "Todos",
+      "inProgress": "En Progreso",
+      "completed": "Completados",
+      "missing": "Pendientes"
+    },
+    "search": {
+      "placeholder": "Buscar logros..."
+    },
+    "criteria": {
+      "completed": "Completados",
+      "missing": "Pendientes"
+    },
+    "unlockedOn": "Desbloqueado el",
+    "empty": {
+      "message": "No se encontraron logros con esos criterios.",
+      "clearFilters": "Limpiar Filtros"
+    },
+    "advancements": "Logros"
+  },
+  "biomes": {
+    "title": "Tiempo de Aventura",
+    "subtitle": "Descubre todos los biomas en el Mundo Superior para completar el desafío de exploración definitivo.",
+    "progress": "Progreso",
+    "filters": {
+      "all": "Todos",
+      "visited": "Visitados",
+      "missing": "Pendientes"
+    },
+    "search": {
+      "placeholder": "Buscar biomas (ej. 'Jungla')"
+    },
+    "dimension": "Dimensión",
+    "overworld": "Mundo Superior",
+    "empty": {
+      "message": "Ningún bioma coincide con tu búsqueda.",
+      "clearFilters": "Limpiar Filtros"
+    }
+  },
+  "checklist": {
+    "progress": "Progreso",
+    "filters": {
+      "all": "Todos",
+      "completed": "Completados",
+      "missing": "Pendientes"
+    },
+    "search": {
+      "placeholder": "Buscar elementos..."
+    },
+    "empty": {
+      "message": "Ningún criterio coincide con tu búsqueda.",
+      "clearFilters": "Limpiar Filtros"
+    }
+  },
+  "seed-manager": {
+    "title": "Explorador de Semillas",
+    "subtitle": "Ingresa la semilla de generación de tu mundo para localizar estructuras y biomas faltantes con Chunkbase.",
+    "label": "Semilla del Mundo de Minecraft",
+    "placeholder": "ej. 542630838 o 'mi mundo increíble'",
+    "save": "Guardar Semilla",
+    "saved": "Guardado",
+    "clearSeed": "Borrar semilla",
+    "errors": {
+      "tooLong": "La semilla es demasiado larga (máx. 50 caracteres)."
+    },
+    "chunkbase": {
+      "title": "Integración con Chunkbase",
+      "description": "¿Tienes dificultades para encontrar algún bioma? Chunkbase genera un mapa interactivo de tu mundo.",
+      "open": "Abrir en Chunkbase",
+      "hint": "Guarda una semilla primero para habilitar la integración"
+    }
+  },
+  "drop-zone": {
+    "title": "Suelta tu archivo aquí",
+    "titleDragging": "Suelta para cargar",
+    "subtitle": "Arrastra tu archivo <code>advancements.json</code> o <span class=\"browse-link\">haz clic para buscar</span>",
+    "hint": "Se encuentra en <code>.minecraft/saves/&lt;mundo&gt;/advancements/</code>",
+    "success": "¡Archivo cargado!",
+    "error": "Archivo inválido",
+    "ariaLabel": "Suelta tu archivo JSON de logros de Minecraft aquí o haz clic para buscar"
+  }
+}

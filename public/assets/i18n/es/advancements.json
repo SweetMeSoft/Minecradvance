@@ -1,0 +1,21 @@
+{
+  "filters": {
+    "all": "Todos",
+    "inProgress": "En Progreso",
+    "completed": "Completados",
+    "missing": "Pendientes"
+  },
+  "search": {
+    "placeholder": "Buscar logros..."
+  },
+  "criteria": {
+    "completed": "Completados",
+    "missing": "Pendientes"
+  },
+  "unlockedOn": "Desbloqueado el",
+  "empty": {
+    "message": "No se encontraron logros con esos criterios.",
+    "clearFilters": "Limpiar Filtros"
+  },
+  "advancements": "Logros"
+}

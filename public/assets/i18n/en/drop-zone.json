@@ -1,0 +1,9 @@
+{
+  "title": "Drop your save file here",
+  "titleDragging": "Release to upload",
+  "subtitle": "Drag your <code>advancements.json</code> file or <span class=\"browse-link\">click to browse</span>",
+  "hint": "Found in <code>.minecraft/saves/&lt;world&gt;/advancements/</code>",
+  "success": "File loaded!",
+  "error": "Invalid file",
+  "ariaLabel": "Drop your Minecraft advancements JSON file here or click to browse"
+}

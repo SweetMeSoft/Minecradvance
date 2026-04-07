@@ -1,0 +1,19 @@
+{
+  "title": "Adventuring Time",
+  "subtitle": "Discover every biome in the Overworld to complete the ultimate exploration challenge.",
+  "progress": "Progress",
+  "filters": {
+    "all": "All",
+    "visited": "Visited",
+    "missing": "Missing"
+  },
+  "search": {
+    "placeholder": "Search biomes (e.g. 'Jungle')"
+  },
+  "dimension": "Dimension",
+  "overworld": "Overworld",
+  "empty": {
+    "message": "No biomes match your search.",
+    "clearFilters": "Clear Filters"
+  }
+}

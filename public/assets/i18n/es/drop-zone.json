@@ -1,0 +1,9 @@
+{
+  "title": "Suelta tu archivo aquí",
+  "titleDragging": "Suelta para cargar",
+  "subtitle": "Arrastra tu archivo <code>advancements.json</code> o <span class=\"browse-link\">haz clic para buscar</span>",
+  "hint": "Se encuentra en <code>.minecraft/saves/&lt;mundo&gt;/advancements/</code>",
+  "success": "¡Archivo cargado!",
+  "error": "Archivo inválido",
+  "ariaLabel": "Suelta tu archivo JSON de logros de Minecraft aquí o haz clic para buscar"
+}

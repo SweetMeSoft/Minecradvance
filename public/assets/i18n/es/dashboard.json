@@ -1,0 +1,23 @@
+{
+  "title": "Viaje Global",
+  "subtitle": "Tu progreso total de logros en todo el mundo.",
+  "complete": "Completado",
+  "stats": {
+    "unlocked": "Desbloqueados",
+    "remaining": "Restantes",
+    "total": "Total",
+    "biomes": "Biomas"
+  },
+  "categories": {
+    "title": "Resumen por Categoría",
+    "clickHint": "Haz clic en una categoría para ver sus logros"
+  },
+  "recent": {
+    "title": "Logros Recientes",
+    "empty": "Aún no hay logros desbloqueados.\n¡Carga tu archivo de mundo para ver tu progreso!",
+    "category": "Categoría"
+  },
+  "upload": {
+    "loadFile": "Cargar archivo guardado"
+  }
+}

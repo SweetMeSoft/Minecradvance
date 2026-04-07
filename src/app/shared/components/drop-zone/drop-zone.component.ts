@@ -5,10 +5,13 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-drop-zone',
   standalone: true,
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './drop-zone.component.html',
   styleUrl: './drop-zone.component.css',
 })

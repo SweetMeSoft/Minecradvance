@@ -1,0 +1,18 @@
+{
+  "title": "World Seed Explorer",
+  "subtitle": "Input your world generation seed to instantly locate structures and missing biomes via Chunkbase.",
+  "label": "Minecraft World Seed",
+  "placeholder": "e.g. 542630838 or 'my awesome world'",
+  "save": "Save Local Seed",
+  "saved": "Saved to disk",
+  "clearSeed": "Clear seed",
+  "errors": {
+    "tooLong": "Seed is too long (max 50 characters)."
+  },
+  "chunkbase": {
+    "title": "Chunkbase Map Integration",
+    "description": "Having trouble finding that elusive Mushroom Island or Snowy Slopes biome? Chunkbase generates an interactive map of your world.",
+    "open": "Open in Chunkbase Map",
+    "hint": "Save a seed first to enable integration"
+  }
+}

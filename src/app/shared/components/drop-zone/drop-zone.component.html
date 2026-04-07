@@ -1,5 +1,6 @@
 <div
   class="drop-zone"
+  *transloco="let t; read: 'drop-zone'"
   [class.drag-over]="isDragOver()"
   [class.accepted]="isAccepted()"
   [class.has-error]="errorMessage()"
@@ -9,7 +10,7 @@
   (click)="openFileBrowser()"
   role="button"
   tabindex="0"
-  aria-label="Drop your Minecraft advancements JSON file here or click to browse"
+  [attr.aria-label]="t('ariaLabel')"
   (keydown.enter)="openFileBrowser()"
   (keydown.space)="openFileBrowser()"
 >
@@ -59,25 +60,21 @@
   <!-- Text content -->
   <div class="text-content">
     @if (isAccepted() && acceptedFileName()) {
-      <p class="title success-title">File loaded!</p>
+      <p class="title success-title">{{ t('success') }}</p>
       <p class="subtitle">{{ acceptedFileName() }}</p>
     } @else if (errorMessage()) {
-      <p class="title error-title">Invalid file</p>
+      <p class="title error-title">{{ t('error') }}</p>
       <p class="subtitle error-subtitle">{{ errorMessage() }}</p>
     } @else {
       <p class="title">
         @if (isDragOver()) {
-          Release to upload
+          {{ t('titleDragging') }}
         } @else {
-          Drop your save file here
+          {{ t('title') }}
         }
       </p>
-      <p class="subtitle">
-        Drag your <code>advancements.json</code> file or <span class="browse-link">click to browse</span>
-      </p>
-      <p class="hint">
-        Found in <code>.minecraft/saves/&lt;world&gt;/advancements/</code>
-      </p>
+      <p class="subtitle" [innerHTML]="t('subtitle')"></p>
+      <p class="hint" [innerHTML]="t('hint')"></p>
     }
   </div>
 

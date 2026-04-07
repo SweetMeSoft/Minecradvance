@@ -1,4 +1,4 @@
-<div class="advancements-layout animate-fade-in">
+<div class="advancements-layout animate-fade-in" *transloco="let t; read: 'advancements'">
   
   <!-- Categories Navbar -->
   <header class="advancements-header">
@@ -13,7 +13,7 @@
   <section class="category-controls glass-panel">
     <div class="category-info">
       <h2 class="category-title">
-        {{ getCategoryLabel() }} Advancements
+        {{ getCategoryLabel() }} {{ t('advancements') }}
       </h2>
       <div class="progress-bar-wrapper">
         <app-progress-bar 
@@ -34,18 +34,18 @@
         </svg>
         <input 
           type="text" 
-          placeholder="Search..." 
+          [placeholder]="t('search.placeholder')" 
           [ngModel]="searchQuery()"
           (ngModelChange)="searchQuery.set($event)"
         />
       </div>
 
-      <!-- Filter Dropdown / Buttons -->
+      <!-- Filter Buttons -->
       <div class="filter-group">
-        <button [class.active]="filterType() === 'all'" (click)="setFilter('all')">All</button>
-        <button [class.active]="filterType() === 'in-progress'" (click)="setFilter('in-progress')">In Progress</button>
-        <button [class.active]="filterType() === 'completed'" (click)="setFilter('completed')">Completed</button>
-        <button [class.active]="filterType() === 'missing'" (click)="setFilter('missing')">Missing</button>
+        <button [class.active]="filterType() === 'all'" (click)="setFilter('all')">{{ t('filters.all') }}</button>
+        <button [class.active]="filterType() === 'in-progress'" (click)="setFilter('in-progress')">{{ t('filters.inProgress') }}</button>
+        <button [class.active]="filterType() === 'completed'" (click)="setFilter('completed')">{{ t('filters.completed') }}</button>
+        <button [class.active]="filterType() === 'missing'" (click)="setFilter('missing')">{{ t('filters.missing') }}</button>
       </div>
     </div>
   </section>
@@ -111,7 +111,7 @@
             <div class="criteria-lists">
               @if (adv.completedCriteria.length > 0) {
                 <div class="criteria-box criteria-completed">
-                  <h4 class="criteria-heading text-emerald">Completed ({{ adv.completedCriteria.length }})</h4>
+                  <h4 class="criteria-heading text-emerald">{{ t('criteria.completed') }} ({{ adv.completedCriteria.length }})</h4>
                   <ul class="criteria-list">
                     @for (crit of adv.completedCriteria; track crit) {
                       <li>
@@ -125,7 +125,7 @@
 
               @if (adv.missingCriteria.length > 0) {
                 <div class="criteria-box criteria-missing">
-                  <h4 class="criteria-heading text-redstone">Missing ({{ adv.missingCriteria.length }})</h4>
+                  <h4 class="criteria-heading text-redstone">{{ t('criteria.missing') }} ({{ adv.missingCriteria.length }})</h4>
                   <ul class="criteria-list">
                     @for (crit of adv.missingCriteria; track crit) {
                       <li>
@@ -140,7 +140,7 @@
 
             @if (adv.completedAt) {
               <div class="adv-timestamp">
-                Unlocked on: {{ adv.completedAt | date:'medium' }}
+                {{ t('unlockedOn') }}: {{ adv.completedAt | date:'medium' }}
               </div>
             }
 
@@ -152,8 +152,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <p>No advancements found matching your criteria.</p>
-        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">Clear Filters</button>
+        <p>{{ t('empty.message') }}</p>
+        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">{{ t('empty.clearFilters') }}</button>
       </div>
     }
   </section>

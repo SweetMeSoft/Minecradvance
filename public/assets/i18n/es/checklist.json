@@ -1,0 +1,15 @@
+{
+  "progress": "Progreso",
+  "filters": {
+    "all": "Todos",
+    "completed": "Completados",
+    "missing": "Pendientes"
+  },
+  "search": {
+    "placeholder": "Buscar elementos..."
+  },
+  "empty": {
+    "message": "Ningún criterio coincide con tu búsqueda.",
+    "clearFilters": "Limpiar Filtros"
+  }
+}

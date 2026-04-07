@@ -1,17 +1,19 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 
 @Component({
   selector: 'app-seed-manager',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslocoModule],
   templateUrl: './seed-manager.component.html',
   styleUrl: './seed-manager.component.css',
 })
 export class SeedManagerComponent {
   private readonly stateService = inject(ProgressStateService);
+  private readonly transloco = inject(TranslocoService);
 
   /** Current seed from central state */
   protected readonly currentSeed = this.stateService.userSeed;
@@ -44,7 +46,7 @@ export class SeedManagerComponent {
     
     // Quick validation
     if (rawValue.length > 50) {
-      this.validationError.set('Seed is too long (max 50 characters).');
+      this.validationError.set(this.transloco.translate('seed-manager.errors.tooLong'));
       return;
     }
 

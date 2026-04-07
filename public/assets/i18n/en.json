@@ -1,0 +1,124 @@
+{
+  "app": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "advancements": "Advancements",
+      "checklists": "Checklists",
+      "adventuringTime": "Adventuring Time",
+      "monstersHunted": "Monsters Hunted",
+      "twoByTwo": "Two by Two",
+      "balancedDiet": "A Balanced Diet",
+      "completeCatalogue": "A Complete Catalogue",
+      "hotTouristDestinations": "Hot Tourist Destinations",
+      "wholePack": "The Whole Pack",
+      "tools": "Tools",
+      "seedManager": "Seed Manager"
+    },
+    "lang": {
+      "switchTo": "Switch to Spanish",
+      "en": "EN",
+      "es": "ES"
+    }
+  },
+  "dashboard": {
+    "title": "Global Journey",
+    "subtitle": "Your total advancement progress across the entire realm.",
+    "complete": "Complete",
+    "stats": {
+      "unlocked": "Unlocked",
+      "remaining": "Remaining",
+      "total": "Total",
+      "biomes": "Biomes"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "clickHint": "Click a category to view its advancements"
+    },
+    "recent": {
+      "title": "Recent Milestones",
+      "empty": "No advancements unlocked yet. Load your world file to see your journey!"
+    }
+  },
+  "advancements": {
+    "filters": {
+      "all": "All",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "missing": "Missing"
+    },
+    "search": {
+      "placeholder": "Search advancements..."
+    },
+    "criteria": {
+      "completed": "Completed",
+      "missing": "Missing"
+    },
+    "unlockedOn": "Unlocked on",
+    "empty": {
+      "message": "No advancements found matching your criteria.",
+      "clearFilters": "Clear Filters"
+    },
+    "advancements": "Advancements"
+  },
+  "biomes": {
+    "title": "Adventuring Time",
+    "subtitle": "Discover every biome in the Overworld to complete the ultimate exploration challenge.",
+    "progress": "Progress",
+    "filters": {
+      "all": "All",
+      "visited": "Visited",
+      "missing": "Missing"
+    },
+    "search": {
+      "placeholder": "Search biomes (e.g. 'Jungle')"
+    },
+    "dimension": "Dimension",
+    "overworld": "Overworld",
+    "empty": {
+      "message": "No biomes match your search.",
+      "clearFilters": "Clear Filters"
+    }
+  },
+  "checklist": {
+    "progress": "Progress",
+    "filters": {
+      "all": "All",
+      "completed": "Completed",
+      "missing": "Missing"
+    },
+    "search": {
+      "placeholder": "Search items..."
+    },
+    "empty": {
+      "message": "No criteria match your search.",
+      "clearFilters": "Clear Filters"
+    }
+  },
+  "seed-manager": {
+    "title": "World Seed Explorer",
+    "subtitle": "Input your world generation seed to instantly locate structures and missing biomes via Chunkbase.",
+    "label": "Minecraft World Seed",
+    "placeholder": "e.g. 542630838 or 'my awesome world'",
+    "save": "Save Local Seed",
+    "saved": "Saved to disk",
+    "clearSeed": "Clear seed",
+    "errors": {
+      "tooLong": "Seed is too long (max 50 characters)."
+    },
+    "chunkbase": {
+      "title": "Chunkbase Map Integration",
+      "description": "Having trouble finding that elusive Mushroom Island or Snowy Slopes biome? Chunkbase generates an interactive map of your world.",
+      "open": "Open in Chunkbase Map",
+      "hint": "Save a seed first to enable integration"
+    }
+  },
+  "drop-zone": {
+    "title": "Drop your save file here",
+    "titleDragging": "Release to upload",
+    "subtitle": "Drag your <code>advancements.json</code> file or <span class=\"browse-link\">click to browse</span>",
+    "hint": "Found in <code>.minecraft/saves/&lt;world&gt;/advancements/</code>",
+    "success": "File loaded!",
+    "error": "Invalid file",
+    "ariaLabel": "Drop your Minecraft advancements JSON file here or click to browse"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "dashboard": "Panel Principal",
+    "advancements": "Logros",
+    "checklists": "Listas de Control",
+    "adventuringTime": "Tiempo de Aventura",
+    "monstersHunted": "Monstruos Cazados",
+    "twoByTwo": "De Dos en Dos",
+    "balancedDiet": "Dieta Equilibrada",
+    "completeCatalogue": "Catálogo Completo",
+    "hotTouristDestinations": "Destinos Turísticos",
+    "wholePack": "La Manada Completa",
+    "tools": "Herramientas",
+    "seedManager": "Gestión de Semillas"
+  },
+  "lang": {
+    "switchTo": "Cambiar a inglés",
+    "en": "EN",
+    "es": "ES"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Tiempo de Aventura",
+  "subtitle": "Descubre todos los biomas en el Mundo Superior para completar el desafío de exploración definitivo.",
+  "progress": "Progreso",
+  "filters": {
+    "all": "Todos",
+    "visited": "Visitados",
+    "missing": "Pendientes"
+  },
+  "search": {
+    "placeholder": "Buscar biomas (ej. 'Jungla')"
+  },
+  "dimension": "Dimensión",
+  "overworld": "Mundo Superior",
+  "empty": {
+    "message": "Ningún bioma coincide con tu búsqueda.",
+    "clearFilters": "Limpiar Filtros"
+  }
+}

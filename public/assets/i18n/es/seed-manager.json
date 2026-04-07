@@ -1,0 +1,18 @@
+{
+  "title": "Explorador de Semillas",
+  "subtitle": "Ingresa la semilla de generación de tu mundo para localizar estructuras y biomas faltantes con Chunkbase.",
+  "label": "Semilla del Mundo de Minecraft",
+  "placeholder": "ej. 542630838 o 'mi mundo increíble'",
+  "save": "Guardar Semilla",
+  "saved": "Guardado",
+  "clearSeed": "Borrar semilla",
+  "errors": {
+    "tooLong": "La semilla es demasiado larga (máx. 50 caracteres)."
+  },
+  "chunkbase": {
+    "title": "Integración con Chunkbase",
+    "description": "¿Tienes dificultades para encontrar algún bioma? Chunkbase genera un mapa interactivo de tu mundo.",
+    "open": "Abrir en Chunkbase",
+    "hint": "Guarda una semilla primero para habilitar la integración"
+  }
+}

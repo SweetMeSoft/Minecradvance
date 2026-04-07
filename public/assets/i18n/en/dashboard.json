@@ -1,0 +1,23 @@
+{
+  "title": "Global Journey",
+  "subtitle": "Your total advancement progress across the entire realm.",
+  "complete": "Complete",
+  "stats": {
+    "unlocked": "Unlocked",
+    "remaining": "Remaining",
+    "total": "Total",
+    "biomes": "Biomes"
+  },
+  "categories": {
+    "title": "Category Breakdown",
+    "clickHint": "Click a category to view its advancements"
+  },
+  "recent": {
+    "title": "Recent Milestones",
+    "empty": "No advancements unlocked yet.\nLoad your world file to see your journey!",
+    "category": "Category"
+  },
+  "upload": {
+    "loadFile": "Load save file"
+  }
+}

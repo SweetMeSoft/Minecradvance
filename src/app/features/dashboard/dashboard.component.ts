@@ -1,16 +1,17 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { ProgressCardComponent } from '../../shared/components/progress-card/progress-card.component';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
 import { DropZoneComponent } from '../../shared/components/drop-zone/drop-zone.component';
 import { AdvancementProgress } from '../../core/models/progress.model';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, ProgressCardComponent, DropZoneComponent],
+  imports: [CommonModule, RouterModule, TranslocoModule, ProgressCardComponent, DropZoneComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

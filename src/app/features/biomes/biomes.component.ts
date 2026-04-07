@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslocoModule } from '@jsverse/transloco';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { ProgressCardComponent } from '../../shared/components/progress-card/progress-card.component';
 import { MasterBiome, MasterDatabase } from '../../core/models/progress.model';
@@ -15,7 +16,7 @@ interface BiomeDisplay extends MasterBiome {
 @Component({
   selector: 'app-biomes',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslocoModule],
   templateUrl: './biomes.component.html',
   styleUrl: './biomes.component.css',
 })

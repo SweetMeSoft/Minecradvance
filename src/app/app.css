@@ -121,6 +121,51 @@
   transition: all 0.2s ease;
 }
 
+/* ─── Lang Switcher ────────────────────────────────────────────── */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  color: #94a3b8;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+}
+
+.lang-switcher:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.lang-switcher svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.lang-label {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.lang-sep {
+  opacity: 0.4;
+}
+
+.lang-active {
+  color: var(--color-emerald-400);
+}
+
 /* ─── Sidebar Footer ───────────────────────────────────────────── */
 
 .sidebar-footer {

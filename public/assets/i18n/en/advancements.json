@@ -1,0 +1,21 @@
+{
+  "filters": {
+    "all": "All",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "missing": "Missing"
+  },
+  "search": {
+    "placeholder": "Search advancements..."
+  },
+  "criteria": {
+    "completed": "Completed",
+    "missing": "Missing"
+  },
+  "unlockedOn": "Unlocked on",
+  "empty": {
+    "message": "No advancements found matching your criteria.",
+    "clearFilters": "Clear Filters"
+  },
+  "advancements": "Advancements"
+}

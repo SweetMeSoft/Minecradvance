@@ -1,15 +1,15 @@
-<div class="biomes-layout animate-fade-in">
+<div class="biomes-layout animate-fade-in" *transloco="let t; read: 'biomes'">
   
   <!-- Header / Hero Area -->
   <header class="biomes-header">
     <div class="header-content">
-      <h1 class="page-title">Adventuring Time</h1>
-      <p class="page-subtitle">Discover every biome in the Overworld to complete the ultimate exploration challenge.</p>
+      <h1 class="page-title">{{ t('title') }}</h1>
+      <p class="page-subtitle">{{ t('subtitle') }}</p>
       
       <!-- Progress Bar (Overall Biomes) -->
       <div class="header-progress">
         <div class="progress-stats">
-          <span class="stat-text">Progress</span>
+          <span class="stat-text">{{ t('progress') }}</span>
           <span class="stat-numbers text-emerald">{{ stats().percentage }}% ({{ stats().visited }}/{{ stats().total }})</span>
         </div>
         <div class="progress-track" aria-hidden="true">
@@ -30,7 +30,7 @@
       <input 
         type="text" 
         class="search-input" 
-        placeholder="Search biomes (e.g. 'Jungle')" 
+        [placeholder]="t('search.placeholder')" 
         [ngModel]="searchQuery()"
         (ngModelChange)="searchQuery.set($event)"
       />
@@ -49,19 +49,19 @@
         class="filter-tab" 
         [class.active]="filterType() === 'all'" 
         (click)="setFilter('all')">
-        All
+        {{ t('filters.all') }}
       </button>
       <button 
         class="filter-tab" 
         [class.active]="filterType() === 'visited'" 
         (click)="setFilter('visited')">
-        Visited <span class="tab-badge badge-emerald">{{ stats().visited }}</span>
+        {{ t('filters.visited') }} <span class="tab-badge badge-emerald">{{ stats().visited }}</span>
       </button>
       <button 
         class="filter-tab" 
         [class.active]="filterType() === 'missing'" 
         (click)="setFilter('missing')">
-        Missing <span class="tab-badge badge-redstone">{{ stats().total - stats().visited }}</span>
+        {{ t('filters.missing') }} <span class="tab-badge badge-redstone">{{ stats().total - stats().visited }}</span>
       </button>
     </div>
     
@@ -98,13 +98,13 @@
 
           <div class="biome-text">
             <h3 class="biome-title" title="{{ biome.id }}">{{ biome.name }}</h3>
-            <p class="biome-subtitle">Dimension: {{ biome.dimension | titlecase }}</p>
+            <p class="biome-subtitle">{{ t('dimension') }}: {{ t('overworld') }}</p>
           </div>
         </div>
 
         <!-- Overworld Dimension Tag -->
         <div class="dimension-tag">
-          <span class="tag-dot"></span> Overworld
+          <span class="tag-dot"></span> {{ t('overworld') }}
         </div>
       </div>
     } @empty {
@@ -112,8 +112,8 @@
         <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <p>No biomes match your search.</p>
-        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">Clear Filters</button>
+        <p>{{ t('empty.message') }}</p>
+        <button class="clear-filters-btn" (click)="searchQuery.set(''); setFilter('all')">{{ t('empty.clearFilters') }}</button>
       </div>
     }
   </section>

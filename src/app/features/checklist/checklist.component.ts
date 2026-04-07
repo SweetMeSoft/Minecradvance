@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 import { ProgressStateService } from '../../core/services/progress-state.service';
 import { MasterAdvancement } from '../../core/models/progress.model';
 
@@ -14,7 +15,7 @@ interface ChecklistItem {
 @Component({
   selector: 'app-checklist',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslocoModule],
   templateUrl: './checklist.component.html',
   styleUrl: './checklist.component.css',
 })
