@@ -235,12 +235,12 @@ Discreet but accessible support options to ensure project longevity:
 
 > **Goal:** Craft the first-time user experience.
 
-- [ ] **4.1** Create the **Welcome / Landing page** (`features/welcome/`):
+- [x] **4.1** Create the **Welcome / Landing page** (`features/welcome/`):
   - Hero section with app title and tagline.
   - Step-by-step instructions on locating the `UUID.json` file (with OS-specific paths).
   - Central `DropZone` component.
   - *"I already have data saved"* link that loads from `localStorage`.
-- [ ] **4.2** Implement routing guard: redirect to Welcome if no data exists in `localStorage`, otherwise go to Dashboard.
+- [x] **4.2** Implement routing guard: redirect to Welcome if no data exists in `localStorage`, otherwise go to Dashboard.
 
 ---
 

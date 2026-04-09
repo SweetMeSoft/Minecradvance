@@ -1,8 +1,0 @@
-Hot Tourist Destinations (minecraft:nether/explore_nether) - 5 criteria
-Monsters Hunted (minecraft:adventure/kill_all_mobs) - 34 criteria
-Adventuring Time (minecraft:adventure/adventuring_time) - 53 criteria
-Two by Two (minecraft:husbandry/breed_all_animals) - 26 criteria
-A Complete Catalogue (minecraft:husbandry/complete_catalogue) - 11 criteria
-A Balanced Diet (minecraft:husbandry/balanced_diet) - 40 criteria
-With Our Powers Combined! (minecraft:husbandry/leash_all_frog_variants) - 3 criteria
-The Whole Pack (minecraft:husbandry/whole_pack) - 9 criteria

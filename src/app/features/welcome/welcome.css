@@ -1,0 +1,222 @@
+.welcome-container {
+  min-height: 100vh;
+  background-color: var(--color-deepslate-950);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  padding-bottom: 5rem;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: var(--animate-slide-up);
+}
+
+.badge-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--color-deepslate-900);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-cobblestone-800);
+}
+
+.badge-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  image-rendering: pixelated;
+}
+
+.badge-text {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-emerald-400);
+}
+
+.hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  color: #94a3b8;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.main-grid {
+  width: 100%;
+  max-width: 64rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.panel-left {
+  background-color: var(--color-deepslate-900);
+  border: 1px solid var(--color-cobblestone-800);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dropzone-wrapper {
+  width: 100%;
+  max-width: 24rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-right {
+  background-color: rgba(15, 21, 32, 0.5);
+  border: 1px solid var(--color-cobblestone-800);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instructions-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-emerald {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-emerald-400);
+}
+
+.instructions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: #cbd5e1;
+}
+
+.os-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.os-title {
+  font-weight: 600;
+  color: var(--color-emerald-400);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.os-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.code-block {
+  display: block;
+  background-color: var(--color-deepslate-950);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: #94a3b8;
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  word-break: break-all;
+  user-select: all;
+  font-family: monospace;
+}
+
+/* --- Saved Data Actions --- */
+.saved-data-container {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.divider {
+  position: relative;
+  display: flex;
+  padding: 1.25rem 0;
+  align-items: center;
+}
+
+.divider-line {
+  flex-grow: 1;
+  border-top: 1px solid var(--color-cobblestone-800);
+}
+
+.divider-text {
+  flex-shrink: 0;
+  margin: 0 1rem;
+  color: #64748b;
+  font-size: var(--font-size-sm);
+}
+
+.btn-continue {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-cobblestone-800);
+  color: var(--color-emerald-400);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-continue:hover {
+  background-color: var(--color-cobblestone-700);
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.5);
+}
+
+.btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s;
+}
+
+.btn-continue:hover .btn-icon {
+  transform: translateX(4px);
+}

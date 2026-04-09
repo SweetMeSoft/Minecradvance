@@ -1,3 +1,4 @@
+@if (progressState.isLoaded()) {
 <div class="app-layout" *transloco="let t; read: 'app'">
   
   <!-- Sidebar Navigation -->
@@ -122,3 +123,6 @@
     </div>
   </main>
 </div>
+} @else {
+  <router-outlet></router-outlet>
+}

@@ -1,0 +1,95 @@
+<div class="welcome-container">
+  <!-- Hero Section -->
+  <div class="hero-section text-center">
+    <div class="badge-wrapper">
+      <img src="assets/icons/minecraft-grass.png" alt="" class="badge-icon" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJtMS41OCA5LjA3IDEwLjQ1cyA1Ljg3LTEwLjQ1LTYtNS44Ny0xMC40NWwyLjc4IDIuNzktMTAuNDUtMTZ6Ii8+PHBhdGggZD0iTTEyIDMyLjI1di0xMiIvPjwvc3ZnPg=='">
+      <span class="badge-text">100% Client-Side • Private</span>
+    </div>
+    <h1 class="hero-title text-gradient-emerald">
+      Minecraft Progress Tracker
+    </h1>
+    <p class="hero-subtitle">
+      Instantly visualize your advancements, track missing biomes, and plan your journey. 
+      Drop your save file below to get started.
+    </p>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="main-grid">
+    
+    <!-- Left panel: Drop Zone -->
+    <div class="panel-left">
+      <div class="dropzone-wrapper">
+        <app-drop-zone 
+          style="display: block; width: 100%;"
+          (fileSelected)="onFileSelected($event)" 
+          (fileError)="onFileError($event)"
+        ></app-drop-zone>
+      </div>
+
+      @if (hasSavedData) {
+        <div class="saved-data-container">
+          <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-text">Welcome back</span>
+            <div class="divider-line"></div>
+          </div>
+          
+          <button 
+            type="button"
+            (click)="loadSavedData()"
+            class="btn-continue">
+            <span>Continue Previous Session</span>
+            <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- Right panel: Instructions -->
+    <div class="panel-right">
+      <h2 class="instructions-title">
+        <svg class="icon-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Where is my advancements file?
+      </h2>
+      
+      <div class="instructions-list">
+        <div>
+          <div class="os-header">
+            <h3 class="os-title">
+              <svg class="os-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/></svg>
+              Windows
+            </h3>
+          </div>
+          <code class="code-block">
+            %appdata%\.minecraft\saves\&lt;WorldName&gt;\advancements\
+          </code>
+        </div>
+        
+        <div>
+          <h3 class="os-title" style="margin-bottom: 0.5rem;">
+            <svg class="os-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            macOS
+          </h3>
+          <code class="code-block">
+            ~/Library/Application Support/minecraft/saves/&lt;World&gt;/advancements/
+          </code>
+        </div>
+        
+        <div>
+          <h3 class="os-title" style="margin-bottom: 0.5rem;">
+            <svg class="os-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M10.5 7.5L5 12l5.5 4.5m4-9L20 12l-5.5 4.5"/></svg>
+            Linux
+          </h3>
+          <code class="code-block">
+            ~/.minecraft/saves/&lt;WorldName&gt;/advancements/
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

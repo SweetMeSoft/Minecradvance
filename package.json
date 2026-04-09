@@ -6,7 +6,8 @@
     "start": "ng serve --port 17335",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "npm run build && node deploy.js"
   },
   "private": true,
   "packageManager": "npm@11.12.0",
