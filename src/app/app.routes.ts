@@ -33,5 +33,9 @@ export const routes: Routes = [
     canActivate: [hasDataGuard],
     loadComponent: () => import('./features/checklist/checklist.component').then(m => m.ChecklistComponent) 
   },
+  {
+    path: 'about',
+    loadComponent: () => import('./features/about/about').then(m => m.AboutComponent)
+  },
   { path: '**', redirectTo: 'dashboard' }
 ];

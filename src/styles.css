@@ -107,19 +107,27 @@
 
 @keyframes pulse-glow {
   0%,
-  100% {
-    box-shadow: 0 0 5px rgba(52, 211, 153, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
-  }
+  100% { box-shadow: 0 0 5px rgba(52, 211, 153, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.4); }
 }
 
 @keyframes progress-fill {
-  from {
-    width: 0%;
-  }
+  from { width: 0%; }
 }
+
+/* ============================================
+   Animation Utility Classes
+   ============================================ */
+.animate-fade-in { animation: var(--animate-fade-in) forwards; }
+.animate-slide-up { animation: var(--animate-slide-up) forwards; }
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+
 
 /* ============================================
    Base / Reset Styles

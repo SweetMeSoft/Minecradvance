@@ -3,9 +3,9 @@ const ftp = require("basic-ftp");
 const path = require('path');
 const fs = require('fs').promises;
 
-const LOCAL_BUILD_PATH = path.join(__dirname, "../dist/azemblia/browser");
-const REMOTE_PATH = "/domains/azemblia.ai/public_html/";
-const CONCURRENCY = 8; // 8 conexiones en paralelo para máxima velocidad sin bloqueo del servidor
+const LOCAL_BUILD_PATH = path.join(__dirname, "./dist/Minecradvance/browser");
+const REMOTE_PATH = "/domains/paleturquoise-parrot-545219.hostingersite.com/public_html/";
+const CONCURRENCY = 8;
 
 async function getLocalFiles(dir, baseDir) {
   let results = [];

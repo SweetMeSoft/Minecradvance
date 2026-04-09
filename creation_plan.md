@@ -248,14 +248,14 @@ Discreet but accessible support options to ensure project longevity:
 
 > **Goal:** Final touches, quality assurance, and go-live.
 
-- [ ] **5.1** Add responsive design breakpoints (mobile-first: `sm`, `md`, `lg`, `xl`).
-- [ ] **5.2** Add subtle animations: card entrance transitions, progress bar fill, tab switches.
-- [ ] **5.3** Add an **"About"** page with contributor credits, donation links, and project info.
+- [x] **5.1** Add responsive design breakpoints (mobile-first: `sm`, `md`, `lg`, `xl`).
+- [x] **5.2** Add subtle animations: card entrance transitions, progress bar fill, tab switches.
+- [x] **5.3** Add an **"About"** page with contributor credits, donation links, and project info.
 - [ ] **5.4** Write E2E tests (Cypress or Playwright) for the core user journey.
 - [ ] **5.5** Configure deployment to **GitHub Pages** (or Vercel/Netlify):
   - Build script: `ng build --configuration production --base-href /Minecradvance/`
   - GitHub Actions CI/CD workflow for automated deploys on `main` push.
-- [ ] **5.6** Final review: accessibility audit (a11y), Lighthouse performance check, cross-browser testing.
+- [x] **5.6** Final review: accessibility audit (a11y), Lighthouse performance check, cross-browser testing.
 
 ---
 

@@ -2,7 +2,7 @@
 <div class="app-layout" *transloco="let t; read: 'app'">
   
   <!-- Sidebar Navigation -->
-  <aside class="sidebar">
+  <aside class="sidebar" aria-label="Sidebar">
     <div class="sidebar-header">
       <div class="logo-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -12,7 +12,7 @@
       <h1 class="app-title">Minecradvance</h1>
     </div>
 
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav" aria-label="Main Navigation">
       <ul class="nav-list">
         <li>
           <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
@@ -113,11 +113,18 @@
         </svg>
         GitHub
       </a>
+
+      <a routerLink="/about" class="footer-link" style="margin-top: 0.75rem;" aria-label="About this project">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        About
+      </a>
     </div>
   </aside>
 
   <!-- Main Content Area -->
-  <main class="main-content">
+  <main class="main-content" role="main">
     <div class="page-container">
       <router-outlet></router-outlet>
     </div>

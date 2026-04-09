@@ -89,7 +89,7 @@
         <a 
           [routerLink]="['/advancements']" 
           [queryParams]="{category: catProgress.category.id}" 
-          class="clickable-card-wrapper"
+          class="clickable-card-wrapper animate-slide-up stagger-1"
         >
           <app-progress-card
             [title]="catProgress.category.name"
@@ -112,7 +112,7 @@
     @if (recentCompletions().length > 0) {
       <div class="timeline">
         @for (recent of recentCompletions(); track recent.advancement.id) {
-          <div class="timeline-item glass-panel">
+          <div class="timeline-item glass-panel animate-slide-up stagger-2">
             <div class="timeline-icon">
                <img [src]="'assets/icons/' + recent.advancement.icon" alt="*" class="fallback-icon" />
             </div>
